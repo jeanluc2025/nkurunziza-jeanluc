@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>XYZ-Company - Currency Exchange Platform</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background:#f2f2f2;
+    }
+
+    header {
+      background: #1e3a5f;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    .container {
+      background: white;
+      margin: 40px auto;
+      padding: 30px;
+      max-width: 600px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .row {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      margin-bottom: 15px;
+    }
+
+    .input-group {
+      flex: 1;
+    }
+.amount{
+    justify-content: space-around;
+}
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    button {
+    
+        margin: 10px auto 0;
+      padding: 12px;
+      width: 150px;
+      background-color: #1e3a5f;
+      color:white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      display: block;
+      position: absolute;
+      bottom: 380px;
+    }
+
+    button:hover {
+      background-color:blue;
+    }
+
+    .result {
+      margin-top: 10px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>XYZ-COMPANY</h1>
+  <p>CURRENCY EXCHANGE PLATFORM</p>
+</header>
+
+<div class="container">
+
+  <div class="row">
+    <div class="input-group">
+      <label for="amount">Amount</label>
+      <input type="number" id="amount" value="100" class="amount">
+    </div>
+<br>
+    <div class="input-group">
+      <label for="from-currency">From</label>
+      <select id="from-currency">
+        <option value="USD">USD - $</option>
+      </select>
+    </div>
+</br>
+    <div class="input-group">
+      <label for="to-currency">To</label>
+      <select id="to-currency">
+        <option value="RWF">Rwanda - RWF</option>
+      </select>
+      <div class="result" id="result">Result: 10,300</div>
+    </div>
+  </div>
+
+  <button onclick="convertCurrency()">Convert</button>
+
+</div>
+
+<script>
+  function convertCurrency() {
+    const amount = parseFloat(document.getElementById('amount').value);
+    const from = document.getElementById('from-currency').value;
+    const to = document.getElementById('to-currency').value;
+
+    let rate = 103; // 1 USD = 103 RWF
+
+    if (from === "USD" && to === "RWF") {
+      const converted = amount * rate;
+      document.getElementById('result').textContent = "Result: " + converted.toLocaleString();
+    } else {
+      document.getElementById('result').textContent = "Exchange rate not available.";
+    }
+  }
+</script>
+
+</body>
+</html>
